@@ -1,4 +1,9 @@
 <p>products works!</p>
-<app-products-nav-bar (productEventEmitter)="onActionEvent($event)"></app-products-nav-bar>
-<app-products-list [products$]="products$" (productsEventEmitter)="onActionEvent($event)"></app-products-list>
+<!-- <app-products-nav-bar (productEventEmitter)="onActionEvent($event)"></app-products-nav-bar> sans utlisation du service eventDriverService subject observable-->
+<app-products-nav-bar></app-products-nav-bar>
+
 <!-- nous avons depuis le parent un input l'envoi des produits et un output les evenements de selection delete edit -->
+<!-- <app-products-list [products$]="products$" (productsEventEmitter)="onActionEvent($event)"></app-products-list> -->
+
+<!-- on vire l'emitteur lorsque on utilise eventDriverService -->
+<app-products-list [products$]="products$"></app-products-list>

@@ -11,29 +11,30 @@ import { ActionEvent, AppDataState, DataStateEnum, ProductActionTypes } from 'sr
 export class ProductsListComponent implements OnInit {
 
   @Input() products$: Observable<AppDataState<Product[]>> | null = null;
-  @Output() productsEventEmitter: EventEmitter<ActionEvent> = new EventEmitter<ActionEvent>();
+  // @Output() productsEventEmitter: EventEmitter<ActionEvent> = new EventEmitter<ActionEvent>();
   readonly DataStateEnum = DataStateEnum;
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  onSelect(p: Product) {
-    this.productsEventEmitter.emit({ type: ProductActionTypes.SELECT_PRODUCT, payload: p })
+  // onSelect(p: Product) {
+  //   this.productsEventEmitter.emit({ type: ProductActionTypes.SELECT_PRODUCT, payload: p })
 
-  }
-  onDelete(p: Product) {
-    this.productsEventEmitter.emit({ type: ProductActionTypes.DELETE_PRODUCT, payload: p })
+  // }
+  // onDelete(p: Product) {
+  //   this.productsEventEmitter.emit({ type: ProductActionTypes.DELETE_PRODUCT, payload: p })
 
-  }
-  onEdit(p: Product) {
-    this.productsEventEmitter.emit({ type: ProductActionTypes.EDIT_PRODUCT, payload: p })
+  // }
+  // onEdit(p: Product) {
+  //   this.productsEventEmitter.emit({ type: ProductActionTypes.EDIT_PRODUCT, payload: p })
 
 
-  }
-  onActionEvent($event: ActionEvent) {
-    this.productsEventEmitter.emit($event); //on renvoie vers l'action du products.components
+  // }
+  //plus besoin de cette fonction car on passe par eventDriverService
+  // onActionEvent($event: ActionEvent) {
+  //   this.productsEventEmitter.emit($event); //on renvoie vers l'action du products.components
 
-  }
+  // }
 
 }

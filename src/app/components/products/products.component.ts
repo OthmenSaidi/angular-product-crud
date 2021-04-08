@@ -1,3 +1,4 @@
+import { EventDriverService } from './../../services/event.driver.service';
 import { AppDataState, DataStateEnum, ProductActionTypes, ActionEvent } from './../../state/product.state';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
@@ -14,9 +15,15 @@ import { Router } from '@angular/router';
 export class ProductsComponent implements OnInit {
   products$: Observable<AppDataState<Product[]>> | null = null;
   readonly DataStateEnum = DataStateEnum;
-  constructor(private productsService: ProductsService, private router: Router) { }
+  constructor(private productsService: ProductsService, private router: Router,
+    private eventDriverService: EventDriverService) { }
 
   ngOnInit(): void {
+
+    this.eventDriverService.sourceEventSubjectObservable.subscribe((actionEvent: ActionEvent) => {
+      this.onActionEvent(actionEvent);
+
+    });
   }
   onGetAllProducts() {//pour gerer les erreurs on apllique .pipe + 3 étapes loading loaded et erreur
 

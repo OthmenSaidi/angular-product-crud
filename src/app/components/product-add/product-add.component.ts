@@ -1,3 +1,5 @@
+import { ProductActionTypes } from './../../state/product.state';
+import { EventDriverService } from './../../services/event.driver.service';
 import { ProductsService } from './../../services/products.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -22,7 +24,7 @@ export class ProductAddComponent implements OnInit {
   });
   submitted: boolean = false;
 
-  constructor(private fb: FormBuilder, private ProductsService: ProductsService) { }
+  constructor(private fb: FormBuilder, private ProductsService: ProductsService, private eventDriverService: EventDriverService) { }
 
   ngOnInit(): void {
 
@@ -32,6 +34,8 @@ export class ProductAddComponent implements OnInit {
     this.submitted = true;
     if (this.productFormGroup?.invalid) return;
     this.ProductsService.save(this.productFormGroup.value).subscribe(data => {
+      this.eventDriverService.publishEvent({ type: ProductActionTypes.PRODUCT_ADDED })
+
       alert("success");
     });
 

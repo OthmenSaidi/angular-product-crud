@@ -21,16 +21,16 @@
       "name": "Smartphone",
       "price": "850",
       "quantity": "600",
-      "selected": false,
+      "selected": true,
       "available": "true"
     },
     {
+      "id": 4,
       "name": "screen",
-      "price": "150",
+      "price": "350",
       "quantity": "630",
-      "selected": true,
-      "available": true,
-      "id": 4
+      "selected": false,
+      "available": true
     }
   ]
 }
