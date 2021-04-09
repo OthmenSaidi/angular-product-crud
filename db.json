@@ -6,15 +6,15 @@
       "price": "950",
       "quantity": "150",
       "selected": true,
-      "available": "true"
+      "available": true
     },
     {
       "id": 2,
       "name": "printer",
       "price": "150",
-      "quantity": "300",
+      "quantity": "0",
       "selected": false,
-      "available": "true"
+      "available": false
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "price": "850",
       "quantity": "600",
       "selected": true,
-      "available": "true"
+      "available": true
     },
     {
       "id": 4,
